@@ -13,6 +13,8 @@ import java.util.List;
 @RestController
 public class StockController {
 
+    // todo переделать на конструктор (как в RegistrationController)
+
     @Autowired
     StockService stockService;
 
@@ -26,6 +28,8 @@ public class StockController {
 
     @GetMapping("/AllFavoriteStocks")
     public List<FavoriteStock> getAllFavoriteStocks() {
+        //todo добавить зависимость от пользователя
+        // @AuthenticationPrincipal User authenticatedUse
         return favoriteStockService.getAllFavoriteStocks();
     }
 

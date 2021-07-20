@@ -14,12 +14,14 @@ import javax.persistence.*;
 @Table(name = "t_favorite_stock")
 public class FavoriteStock extends Stock{
 
-   /* @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
 
-    private String stockName;
+   /*
 
-    private double cost;*/
+    @Id (
+        userId
+        private String stockName
+    );
+
+    //private BigDecimal cost;*/
 
 }

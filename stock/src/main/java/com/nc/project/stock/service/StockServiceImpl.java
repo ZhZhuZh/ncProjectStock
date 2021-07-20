@@ -19,20 +19,24 @@ public class StockServiceImpl implements StockService {
         this.repository = repository;
     }
 
-    @Override
+    /* @Override
     public Stock getStockById(Integer id) {
         return repository.findStockById(id);
-    }
+    }*/
 
+    //todo добавить взятие последней по времени акции
     @Override
     public Stock getStockByStockName(String stockName) {
         return repository.findStockByStockName(stockName);
     }
 
+    //todo добавить взятие последней по времени акции
     @Override
     public List<Stock> getAllStocks() {
         return repository.findAll();
     }
+
+    //todo добавить saveStock
 
     /*public List<FavoriteStock> getAllFavoriteStock() {
         return ?;

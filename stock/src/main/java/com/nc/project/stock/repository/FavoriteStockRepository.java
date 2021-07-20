@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FavoriteStockRepository extends JpaRepository<FavoriteStock, Integer> {
 
+    //todo перейти на MongoDB
+
     Stock findFavoriteStockById(Integer id);
     Stock findFavoriteStockByStockName(String stockName);
 

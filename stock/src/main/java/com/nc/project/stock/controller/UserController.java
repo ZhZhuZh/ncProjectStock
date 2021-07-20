@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 public class UserController {
 
+    // todo переделать на конструктор
     @Autowired
     UserService userService;
 

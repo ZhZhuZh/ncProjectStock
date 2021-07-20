@@ -18,11 +18,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 //.antMatchers("/users","/user" ).not().fullyAuthenticated()
-                .antMatchers("/users","/user").permitAll()
+                .antMatchers("/user").permitAll()
 
-                //.antMatchers().hasAnyRole("ADMIN")
-                //.antMatchers().hasAnyRole("USER")
-                //.antMatchers("favoriteStock").hasAnyRole("LOGIN_USER")
+                .antMatchers("/users").hasAnyRole("ADMIN")
+                //.antMatchers( все остальное ).hasAnyRole("USER")
+                //.antMatchers("/favoriteStock").hasAnyRole("LOGIN_USER") - не нужен
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

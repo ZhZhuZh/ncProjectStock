@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 @Setter
 @Getter
@@ -19,6 +21,9 @@ public class Stock {
 
     private String stockName;
 
-    private double cost;
+    // private BigInteger timestamp;
+    // todo добавить остальную информацию для хранения
+
+    private BigDecimal cost;
 
 }
