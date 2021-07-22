@@ -22,7 +22,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/users").hasAnyRole("ADMIN")
                 //.antMatchers( все остальное ).hasAnyRole("USER")
-                //.antMatchers("/favoriteStock").hasAnyRole("LOGIN_USER") - не нужен
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

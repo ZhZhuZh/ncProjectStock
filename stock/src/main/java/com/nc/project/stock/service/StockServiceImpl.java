@@ -1,6 +1,5 @@
 package com.nc.project.stock.service;
 
-import com.nc.project.stock.model.FavoriteStock;
 import com.nc.project.stock.model.Stock;
 import com.nc.project.stock.repository.StockRepository;
 import com.nc.project.stock.service.interfaces.StockService;
@@ -19,10 +18,6 @@ public class StockServiceImpl implements StockService {
         this.repository = repository;
     }
 
-    /* @Override
-    public Stock getStockById(Integer id) {
-        return repository.findStockById(id);
-    }*/
 
     //todo добавить взятие последней по времени акции
     @Override

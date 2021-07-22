@@ -11,9 +11,12 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    // todo переделать на конструктор
-    @Autowired
     UserService userService;
+
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/users")
     public List<User> getAllUsers() {

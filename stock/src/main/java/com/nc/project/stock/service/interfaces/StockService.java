@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface StockService {
 
-    //Stock getStockById(Integer id);
+
 
     Stock getStockByStockName(String stockName);
 
