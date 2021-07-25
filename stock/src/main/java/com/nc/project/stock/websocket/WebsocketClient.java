@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 public class WebsocketClient {
 
-    private Stock stock;
+    private String stockSymbol;
 
     private String USER_URI;
 
@@ -26,8 +26,8 @@ public class WebsocketClient {
         return this.queue;
     }
 
-    public WebsocketClient(Stock stock, String USER_URI){
-        this.stock = stock;
+    public WebsocketClient(String stock, String USER_URI){
+        this.stockSymbol = stock;
         this.USER_URI = USER_URI;
     }
 
@@ -50,7 +50,7 @@ public class WebsocketClient {
             });
 
             // send message to websocket
-            clientEndPoint.sendMessage("{\"type\":\"subscribe\",\"symbol\":\""+stock.getSymbol()+"\"}");
+            clientEndPoint.sendMessage("{\"type\":\"subscribe\",\"symbol\":\""+stockSymbol+"\"}");
 
             // wait 5 seconds for messages from websocket
             Thread.sleep(5000);
