@@ -17,18 +17,19 @@ public class StockController {
     FavoriteStockService favoriteStockService;
 
     @Autowired(required=true)
-    public StockController(StockService stockService) {
+    public StockController(StockService stockService, FavoriteStockService favoriteStockService) {
 
         this.stockService = stockService;
-
-    }
-
-    @Autowired
-    public StockController(FavoriteStockService favoriteStockService) {
-
         this.favoriteStockService = favoriteStockService;
 
     }
+
+//    @Autowired
+//    public StockController(FavoriteStockService favoriteStockService) {
+//
+//        this.favoriteStockService = favoriteStockService;
+//
+//    }
 
 
 
