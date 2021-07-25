@@ -26,11 +26,9 @@ public class StockServiceImpl implements StockService {
         this.repository = repository;
     }
 
-
-    //todo добавить взятие последней по времени акции
     @Override
-    public Stock getStockByStockName(String stockName) {
-        return repository.findStockByStockName(stockName);
+    public Stock getStockBySymbol(String symbol) {
+        return repository.findStockBySymbol(symbol);
     }
 
     //todo добавить взятие последней по времени акции
