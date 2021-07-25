@@ -26,8 +26,8 @@ public class WebsocketClient {
         return this.queue;
     }
 
-    public WebsocketClient(String stock, String USER_URI){
-        this.stockSymbol = stock;
+    public WebsocketClient(String stockSymbol, String USER_URI){
+        this.stockSymbol = stockSymbol;
         this.USER_URI = USER_URI;
     }
 
