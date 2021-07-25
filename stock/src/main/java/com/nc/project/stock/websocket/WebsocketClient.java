@@ -35,8 +35,11 @@ public class WebsocketClient {
         this.queue.clear();
     }
 
+    public void addToQueue(String message){
+        this.queue.add(message);
+    }
+
     public void tradeUpdates() {
-//        Queue<String> queue = new LinkedList<>();
         try {
             // open websocket
             final WebsocketClientEndpoint clientEndPoint = new WebsocketClientEndpoint(new URI(USER_URI));
@@ -44,8 +47,7 @@ public class WebsocketClient {
             // add listener
             clientEndPoint.addMessageHandler(new WebsocketClientEndpoint.MessageHandler() {
                 public void handleMessage(String message) {
-//                    System.out.println(message);
-                    queue.add(message);
+                    addToQueue(message);
                 }
             });
 
