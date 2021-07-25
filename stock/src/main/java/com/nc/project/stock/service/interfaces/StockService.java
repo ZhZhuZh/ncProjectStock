@@ -1,15 +1,16 @@
 package com.nc.project.stock.service.interfaces;
 
-import com.nc.project.stock.model.StockHistory;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.nc.project.stock.model.Stock;
 
 import java.util.List;
 
 public interface StockService {
 
+    Stock getStockByStockName(String stockName);
 
+    List<Stock> getAllStocks();
 
-    StockHistory getStockByStockName(String stockName);
-
-    List<StockHistory> getAllStocks();
+    void stockSave() throws JsonProcessingException;
 
 }
