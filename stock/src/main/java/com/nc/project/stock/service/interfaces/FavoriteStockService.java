@@ -1,15 +1,15 @@
 package com.nc.project.stock.service.interfaces;
 
 import com.nc.project.stock.model.FavoriteStock;
-import com.nc.project.stock.model.Stock;
+import com.nc.project.stock.model.StockHistory;
 
 import java.util.List;
 
 public interface FavoriteStockService {
 
-    Stock getFavoriteStockById(Integer id);
+    StockHistory getFavoriteStockById(Integer id);
 
-    Stock getFavoriteStockByStockName(String stockName);
+    StockHistory getFavoriteStockByStockName(String stockName);
 
     List<FavoriteStock> getAllFavoriteStocks();
 

@@ -1,12 +1,11 @@
 package com.nc.project.stock.repository;
 
-import com.nc.project.stock.model.Stock;
+import com.nc.project.stock.model.StockHistory;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
 
-public interface StockRepository extends MongoRepository<Stock, Integer> {
+public interface StockRepository extends MongoRepository<StockHistory, Integer> {
 
-    Stock findStockById(Integer id);
-    Stock findStockByStockName(String stockName);
+    StockHistory findStockById(Integer id);
+    StockHistory findStockByStockName(String stockName);
 
 }

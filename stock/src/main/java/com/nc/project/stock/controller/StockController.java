@@ -1,7 +1,7 @@
 package com.nc.project.stock.controller;
 
 import com.nc.project.stock.model.FavoriteStock;
-import com.nc.project.stock.model.Stock;
+import com.nc.project.stock.model.StockHistory;
 import com.nc.project.stock.service.interfaces.FavoriteStockService;
 import com.nc.project.stock.service.interfaces.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +16,15 @@ public class StockController {
     StockService stockService;
     FavoriteStockService favoriteStockService;
 
-    @Autowired(required=true)
-    public StockController(StockService stockService) {
+    @Autowired
+    public StockController(StockService stockService, FavoriteStockService favoriteStockService) {
 
         this.stockService = stockService;
-
-    }
-
-    @Autowired
-    public StockController(FavoriteStockService favoriteStockService) {
-
         this.favoriteStockService = favoriteStockService;
-
     }
-
-
 
     @GetMapping("/AllStocks")
-    public List<Stock> getAllStocks() {
+    public List<StockHistory> getAllStocks() {
         return stockService.getAllStocks();
     }
 

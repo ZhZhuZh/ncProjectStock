@@ -1,6 +1,6 @@
 package com.nc.project.stock.service.interfaces;
 
-import com.nc.project.stock.model.Stock;
+import com.nc.project.stock.model.StockHistory;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ public interface StockService {
 
 
 
-    Stock getStockByStockName(String stockName);
+    StockHistory getStockByStockName(String stockName);
 
-    List<Stock> getAllStocks();
+    List<StockHistory> getAllStocks();
 
 }
