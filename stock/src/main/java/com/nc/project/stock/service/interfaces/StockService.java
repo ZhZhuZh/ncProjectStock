@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface StockService {
 
-    Stock getStockByStockName(String stockName);
+    Stock getStockBySymbol(String symbol);
 
     List<Stock> getAllStocks();
 

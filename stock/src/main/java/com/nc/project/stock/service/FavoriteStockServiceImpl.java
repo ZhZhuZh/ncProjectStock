@@ -25,8 +25,8 @@ public class FavoriteStockServiceImpl implements FavoriteStockService {
     }
 
     @Override
-    public StockHistory getFavoriteStockByStockName(String stockName) {
-        return repository.findFavoriteStockByStockName(stockName);
+    public StockHistory getFavoriteStockBySymbol(String symbol) {
+        return repository.findFavoriteStockBySymbol(symbol);
     }
 
     //todo изменить сигнатуру и логику - добавить зависимость от юзера

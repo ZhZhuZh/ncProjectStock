@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface FavoriteStockRepository extends MongoRepository<FavoriteStock, Integer> {
 
     StockHistory findFavoriteStockById(Integer id);
-    StockHistory findFavoriteStockByStockName(String stockName);
+    StockHistory findFavoriteStockBySymbol(String symbol);
 
 }

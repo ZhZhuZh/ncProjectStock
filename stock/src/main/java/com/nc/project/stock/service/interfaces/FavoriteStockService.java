@@ -9,7 +9,7 @@ public interface FavoriteStockService {
 
     StockHistory getFavoriteStockById(Integer id);
 
-    StockHistory getFavoriteStockByStockName(String stockName);
+    StockHistory getFavoriteStockBySymbol(String symbol);
 
     List<FavoriteStock> getAllFavoriteStocks();
 
