@@ -20,8 +20,6 @@ public class StockServiceImpl implements StockService {
 
     private final StockRepository repository;
 
-    private WebsocketClient client;
-
     @Autowired
     public StockServiceImpl(StockRepository repository) {
         this.repository = repository;
@@ -36,23 +34,6 @@ public class StockServiceImpl implements StockService {
     @Override
     public List<Stock> getAllStocks() {
         return repository.findAll();
-    }
-
-
-    @PostMapping
-    @Scheduled(fixedRate = 3000)
-    public void stockSave() throws JsonProcessingException {
-
-        Queue<String> newQueue = client.getQueue();
-        ObjectMapper stockMapper = new ObjectMapper();
-        Stock stock;
-
-        client.clearQueue();
-
-        for (String jsonStr : newQueue) {
-            stock = stockMapper.readValue(jsonStr, Stock.class);
-            repository.save(stock);
-        }
     }
 
 

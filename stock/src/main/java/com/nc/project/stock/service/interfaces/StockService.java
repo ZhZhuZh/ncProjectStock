@@ -11,6 +11,4 @@ public interface StockService {
 
     List<Stock> getAllStocks();
 
-    void stockSave() throws JsonProcessingException;
-
 }
