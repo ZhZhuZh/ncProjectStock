@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Queue;
@@ -18,8 +19,6 @@ import java.util.Queue;
 public class StockServiceImpl implements StockService {
 
     private final StockRepository repository;
-
-    private WebsocketClient client;
 
     @Autowired
     public StockServiceImpl(StockRepository repository) {
@@ -36,21 +35,5 @@ public class StockServiceImpl implements StockService {
         return repository.findAll();
     }
 
-
-
-    @Scheduled(fixedRate = 3000)
-    public void stockSave() throws JsonProcessingException {
-
-        Queue<String> newQueue = client.getQueue();
-        ObjectMapper stockMapper = new ObjectMapper();
-        Stock stock;
-
-        client.clearQueue();
-
-        for (String jsonStr : newQueue) {
-            stock = stockMapper.readValue(jsonStr, Stock.class);
-            repository.save(stock);
-        }
-    }
 
 }
