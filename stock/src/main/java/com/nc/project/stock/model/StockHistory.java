@@ -20,7 +20,6 @@ public class StockHistory {
     @Id
     private Integer id;
 
-    // point Trades. Текущую стоимость будем получать из трэйдс с помощью вебсокета или из Куота?
     @Field(value = "Symbol")
     private String symbol;
 

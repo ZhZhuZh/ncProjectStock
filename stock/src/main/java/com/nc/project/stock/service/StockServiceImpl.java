@@ -31,7 +31,6 @@ public class StockServiceImpl implements StockService {
         return repository.findStockBySymbol(symbol);
     }
 
-    //todo добавить взятие последней по времени акции
     @Override
     public List<Stock> getAllStocks() {
         return repository.findAll();
@@ -53,10 +52,5 @@ public class StockServiceImpl implements StockService {
             repository.save(stock);
         }
     }
-
-
-    /*public List<FavoriteStock> getAllFavoriteStock() {
-        return ?;
-    }*/
 
 }
