@@ -2,6 +2,7 @@ package com.nc.project.stock.websocket;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,7 +17,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 
 public class WebsocketClient {
 
-    private String stockSymbol;
+    private ArrayList<String> stockSymbols;
 
     private String USER_URI;
 
@@ -26,8 +27,8 @@ public class WebsocketClient {
         return this.queue;
     }
 
-    public WebsocketClient(String stockSymbol, String USER_URI){
-        this.stockSymbol = stockSymbol;
+    public WebsocketClient(ArrayList<String> stockSymbols, String USER_URI){
+        this.stockSymbols = stockSymbols;
         this.USER_URI = USER_URI;
     }
 
@@ -50,10 +51,10 @@ public class WebsocketClient {
                     addToQueue(message);
                 }
             });
-
-            // send message to websocket
-            clientEndPoint.sendMessage("{\"type\":\"subscribe\",\"symbol\":\""+stockSymbol+"\"}");
-
+            for (String stockSymbol: this.stockSymbols) {
+                // send message to websocket
+                clientEndPoint.sendMessage("{\"type\":\"subscribe\",\"symbol\":\"" + stockSymbol + "\"}");
+            }
             // wait 5 seconds for messages from websocket
             Thread.sleep(5000);
 
