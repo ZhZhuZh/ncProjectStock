@@ -29,10 +29,10 @@ public class StockController {
     }
 
     @GetMapping("/AllFavoriteStocks")
-    public List<FavoriteStock> getAllFavoriteStocks(CompositeKeyForFavoriteStock id) {
-        //todo добавить зависимость от пользователя
+    public List<FavoriteStock> getAllFavoriteStocks(@AuthenticationPrincipal User user) {
+        //todo добавить зависимость от пользователя + getStockByUser
         // @AuthenticationPrincipal User authenticatedUse;
-        return favoriteStockService.getAllFavoriteStocks(id);
+        return favoriteStockService.getStockByUser(user);
     }
 
 }

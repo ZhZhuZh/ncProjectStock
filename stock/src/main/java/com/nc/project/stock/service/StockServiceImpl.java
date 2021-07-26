@@ -12,18 +12,18 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Queue;
 
 @Component
 public class StockServiceImpl implements StockService {
-
-    private final StockRepository repository;
-
     @Autowired
-    public StockServiceImpl(StockRepository repository) {
-        this.repository = repository;
-    }
+    private StockRepository repository;
+
+//    @Autowired
+//    public StockServiceImpl(StockRepository repository) {
+//        this.repository = repository;
+//    }
 
     @Override
     public Stock getStockBySymbol(String symbol) {

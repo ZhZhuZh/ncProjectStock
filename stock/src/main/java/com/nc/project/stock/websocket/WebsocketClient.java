@@ -21,7 +21,7 @@ public class WebsocketClient {
 
     private String USER_URI;
 
-    private Queue<String> queue = new LinkedList();
+    private final Queue<String> queue = new LinkedList<>();
 
     public Queue<String> getQueue() {
         return this.queue;

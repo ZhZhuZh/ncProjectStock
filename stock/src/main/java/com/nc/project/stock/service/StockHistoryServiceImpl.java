@@ -6,18 +6,22 @@ import com.nc.project.stock.model.StockHistory;
 import com.nc.project.stock.repository.StockHistoryRepository;
 import com.nc.project.stock.service.interfaces.StockHistoryService;
 import com.nc.project.stock.websocket.WebsocketClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Queue;
 
+@Component
 public class StockHistoryServiceImpl implements StockHistoryService {
 
     private final StockHistoryRepository repository;
 
     private final WebsocketClient client;
 
-    private ObjectMapper stockMapper = new ObjectMapper();
+    @Autowired
+    private ObjectMapper stockMapper;
 
     public StockHistoryServiceImpl(StockHistoryRepository repository, WebsocketClient client){
         this.repository = repository;
@@ -35,9 +39,10 @@ public class StockHistoryServiceImpl implements StockHistoryService {
 
         Queue<String> newQueue = client.getQueue();
         StockHistory stockHistory;
+        int size = newQueue.size();
 
-        client.clearQueue();
-
+//        client.clearQueue();
+// todo очередь с удалением
         for (String jsonStr : newQueue) {
             stockHistory = this.stockMapper.readValue(jsonStr, StockHistory.class);
             repository.save(stockHistory);

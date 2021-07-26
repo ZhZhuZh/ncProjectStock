@@ -13,7 +13,8 @@ import java.math.BigInteger;
 @Setter
 @Getter
 @NoArgsConstructor
-@Document(collection = "t_stock")
+//@Document(collection = "t_stock")
+@Table(name = "t_stock")
 public class Stock {
 
     @Id

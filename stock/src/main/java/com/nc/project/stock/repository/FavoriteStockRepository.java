@@ -5,6 +5,8 @@ import com.nc.project.stock.model.FavoriteStock;
 import com.nc.project.stock.model.StockHistory;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.List;
+
 public interface FavoriteStockRepository extends MongoRepository<FavoriteStock, Integer> {
 
     FavoriteStock findFavoriteStockById(CompositeKeyForFavoriteStock id);
@@ -12,6 +14,6 @@ public interface FavoriteStockRepository extends MongoRepository<FavoriteStock, 
     // не имеет смысла потому что АйДи в данном классе составное из айДи пользователя и символа
     // StockHistory findFavoriteStockBySymbol(String symbol);
 
-    FavoriteStock findFavoriteStockByUserId(Integer id);
+    List<FavoriteStock> findFavoriteStockByUserId(Integer id);
 
 }
