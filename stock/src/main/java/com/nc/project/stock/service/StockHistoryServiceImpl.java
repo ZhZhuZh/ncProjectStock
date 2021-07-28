@@ -37,13 +37,13 @@ public class StockHistoryServiceImpl implements StockHistoryService {
     @Scheduled(fixedRate = 3000)
     public void stockSave() throws JsonProcessingException {
 
-        Queue<String> newQueue = client.getQueue();
         StockHistory stockHistory;
-        int size = newQueue.size();
+        String jsonStr;
+        int size = client.getQueue().size();
 
-//        client.clearQueue();
-// todo очередь с удалением
-        for (String jsonStr : newQueue) {
+//        for (String jsonStr : newQueue) {
+        for(int i = 0; i < size; i++){
+            jsonStr = client.getQueue().poll();
             stockHistory = this.stockMapper.readValue(jsonStr, StockHistory.class);
             repository.save(stockHistory);
         }
