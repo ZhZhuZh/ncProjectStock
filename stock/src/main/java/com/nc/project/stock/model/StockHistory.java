@@ -26,7 +26,6 @@ public class StockHistory {
     @Field(value = "Time")
     private BigInteger timestamp;
 
-    // point Quote
     @Field(value = "High_Price_Day")
     private BigDecimal highPriceOfTheDay;
 
@@ -35,11 +34,5 @@ public class StockHistory {
 
     @Field(value = "Current_Price_Day")
     private BigDecimal currentPriceOfTheDay;
-
-    @Field(value = "Currency")
-    private String currency;
-
-    @Field(value = "Description")
-    private String description;
 
 }
